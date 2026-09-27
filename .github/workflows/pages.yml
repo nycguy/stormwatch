@@ -27,6 +27,17 @@ jobs:
           grep -q "nearestGauge" js/marine.js
           grep -q "nearestBuoy" js/marine.js
           grep -q "StormHazards" js/hazards.js
+      - name: JavaScript syntax checks
+        run: |
+          for f in js/*.js tests/*.js; do node --check "$f"; done
+      - name: Deterministic unit tests
+        run: node tests/unit.js
+      - name: Nationwide architecture guards
+        run: |
+          grep -q "locationKey" js/history.js
+          grep -q "forecastHourly" js/nws.js
+          grep -q "forecastGridData" js/nws.js
+          grep -q "eventPanel" index.html
       - name: Guard against Saco-specific production hard coding
         run: |
           ! grep -RniE "8418150|44007|WEXM1|Saco Bay|Portland, Maine" index.html js css
