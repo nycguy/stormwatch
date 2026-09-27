@@ -48,7 +48,7 @@ console.log("Marine residual, NHC coordinate, and hourly impact tests passed");
 c=load("js/saved.js",{localStorage:{getItem:()=> "[]",setItem:()=>{}},location:{search:"?lat=91&lon=-73",href:"https://example.test/"},URLSearchParams,URL});assert.strictEqual(c.StormSaved.fromUrl(),null);assert.strictEqual(c.StormSaved.valid({lat:41.2,lon:-73.7}),true);assert.strictEqual(c.StormSaved.valid({lat:NaN,lon:-73.7}),false);
 console.log("Saved location validation tests passed");
 
-c=load("js/event.js");const now=Date.parse("2026-09-28T00:00:00Z"),prop={values:[{validTime:"2026-09-28T00:00:00Z/PT6H",value:25.4},{validTime:"2026-09-28T06:00:00Z/PT6H",value:25.4}]};assert(Math.abs(c.StormEvent.total(prop,12,now)-50.8)<.001);assert.strictEqual(c.StormEvent.durationMs("PT1H30M"),5400000);
+c=load("js/event.js");const accumulationNow=Date.parse("2026-09-28T00:00:00Z"),prop={values:[{validTime:"2026-09-28T00:00:00Z/PT6H",value:25.4},{validTime:"2026-09-28T06:00:00Z/PT6H",value:25.4}]};assert(Math.abs(c.StormEvent.total(prop,12,accumulationNow)-50.8)<.001);assert.strictEqual(c.StormEvent.durationMs("PT1H30M"),5400000);
 console.log("NWS valid-time accumulation tests passed");
 
 c=load("js/coastal.js",{fetch:async()=>({ok:true,json:async()=>({})})});assert.deepStrictEqual(JSON.parse(JSON.stringify(c.StormCoastal.thresholds({floodlevels:[{nws_minor:"11.1",nws_moderate:"12.2",nws_major:"13.3"}]}))),{minor:11.1,moderate:12.2,major:13.3});assert.strictEqual(c.StormCoastal.classify(10,{}),null);
