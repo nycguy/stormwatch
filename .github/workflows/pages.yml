@@ -24,6 +24,9 @@ jobs:
           test -f js/nws.js
           grep -q "api.weather.gov" js/config.js
           grep -q "countrycodes=us" js/location.js
+          grep -q "nearestGauge" js/marine.js
+          grep -q "nearestBuoy" js/marine.js
+          grep -q "StormHazards" js/hazards.js
       - name: Guard against Saco-specific production hard coding
         run: |
           ! grep -RniE "8418150|44007|WEXM1|Saco Bay|Portland, Maine" index.html js css
