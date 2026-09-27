@@ -32,3 +32,11 @@ StormWatch now includes dynamic NWS point/office/zone discovery, forecasts, obse
 ## Validation
 
 CI performs JavaScript syntax validation, deterministic module tests, architecture guards, and Saco-specific hard-coding guards before the Pages deployment job. See `docs/VALIDATION.md` for the nationwide geographic test matrix.
+
+
+## Production intelligence sprint
+
+- NWS forecast-grid analysis now derives 24-hour precipitation, snow and gust metrics for adaptive event displays.
+- NHC active-storm data provides conservative tropical context; local NWS alerts remain authoritative for local tropical event promotion.
+- A scheduled GitHub Actions collector captures representative nationwide weather snapshots every 30 minutes into `data/history/`, providing durable history independent of browser visits.
+- Deployment CI now runs deterministic unit tests, JavaScript syntax validation, architecture/hard-coding guards, and live upstream smoke tests against NWS, NHC, NOAA CO-OPS and NDBC.
