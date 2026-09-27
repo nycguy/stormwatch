@@ -44,3 +44,6 @@ c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({}),text:async()=
 c=load("js/nhc.js",{fetch:async()=>({ok:true,json:async()=>({activeStorms:[]})})});assert.deepStrictEqual(JSON.parse(JSON.stringify(c.StormNHC.point({latitude:"25.5N",longitude:"70.2W"}))),{lat:25.5,lon:-70.2});
 c=load("js/impact.js");let ib=c.StormImpact.fromHourly("wind",[{start:new Date(),summary:"Cloudy",wind:35,pop:10}],{gustMph:45});assert.strictEqual(ib[0].title,"Strong-wind concern");
 console.log("Marine residual, NHC coordinate, and hourly impact tests passed");
+
+c=load("js/saved.js",{localStorage:{getItem:()=> "[]",setItem:()=>{}},location:{search:"?lat=91&lon=-73",href:"https://example.test/"},URLSearchParams,URL});assert.strictEqual(c.StormSaved.fromUrl(),null);assert.strictEqual(c.StormSaved.valid({lat:41.2,lon:-73.7}),true);assert.strictEqual(c.StormSaved.valid({lat:NaN,lon:-73.7}),false);
+console.log("Saved location validation tests passed");
