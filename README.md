@@ -86,3 +86,12 @@ StormWatch now refreshes the selected location every five minutes while the app 
 The next-24-hour experience now identifies the next meaningful hourly transition and the timing of peak stated wind and precipitation probability. Event impact headlines are evaluated per six-hour block rather than applying a 24-hour aggregate hazard label to every block.
 
 Central regional or persistent history can now feed the main 24-hour/72-hour briefing on a first visit. Browser-local exact-location history remains preferred when available, while centrally captured forecast and coastal snapshots provide durable fallback comparisons. Coastal local history also tracks changes in surge residual and the 72-hour astronomical peak.
+
+
+## Hazard intelligence sprint
+
+StormWatch now derives hazard timing directly from NWS grid valid-time intervals. Alongside 24-hour totals it can identify the wettest six-hour precipitation window, heaviest six-hour snow and ice windows, peak modeled gust time, and greatest instability time. These modeled windows remain distinct from official NWS alerts.
+
+Active alerts are prioritized by severity, urgency, and onset. The adaptive event panel includes an evidence/provenance line showing which authoritative inputs support the current focus, such as an official NWS alert, NWS forecast grid, NWS hourly forecast, current observation, or fixed-window history. The evidence label is not a probability forecast.
+
+For NOAA coastal stations, the 72-hour astronomical peak is compared with the station's available minor-flood threshold and is shown with its timing and 72-hour tidal range. Observed-minus-predicted residual remains separate from astronomical prediction so StormWatch does not imply that tide prediction alone is a total-water-level forecast.
