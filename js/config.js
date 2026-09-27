@@ -1,1 +1,1 @@
-window.StormWatchConfig={nwsBase:"https://api.weather.gov",geocodeBase:"https://nominatim.openstreetmap.org",defaultCenter:[-98.5795,39.8283],defaultZoom:3};
+window.StormWatchConfig={nwsBase:"https://api.weather.gov",geocodeBase:"https://nominatim.openstreetmap.org",historyApi:"",defaultCenter:[-98.5795,39.8283],defaultZoom:3};
