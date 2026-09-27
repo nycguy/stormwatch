@@ -62,6 +62,11 @@ jobs:
           grep -q "StormConfidence" js/confidence.js
           grep -q "StormNext" js/next.js
           grep -q "StormStory" js/story.js
+          grep -q "StormPlanner" js/planner.js
+          grep -q "StormCompare" js/compare.js
+          grep -q "StormDaylight" js/daylight.js
+          grep -q "plannerPanel" index.html
+          grep -q "comparePanel" index.html
           grep -q "storyPanel" index.html
           grep -q "phasesPanel" index.html
           grep -q "bestObservation" js/nws.js
