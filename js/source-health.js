@@ -1,0 +1,1 @@
+window.StormSourceHealth=(()=>{function age(iso){const t=Date.parse(iso);return Number.isFinite(t)?Math.max(0,(Date.now()-t)/60000):null}function status(iso,stale=120){const m=age(iso);return m==null?{state:"Unknown",minutes:null}:m>stale?{state:"Stale",minutes:Math.round(m)}:{state:"Fresh",minutes:Math.round(m)}}return{age,status}})();
