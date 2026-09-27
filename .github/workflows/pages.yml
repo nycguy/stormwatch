@@ -59,6 +59,9 @@ jobs:
           grep -q "StormLifecycle" js/lifecycle.js
           grep -q "StormSaved" js/saved.js
           grep -q "StormSourceHealth" js/source-health.js
+          grep -q "StormConfidence" js/confidence.js
+          grep -q "wettestWindow" js/event.js
+          grep -q "peakMargin" js/coastal.js
           grep -q "StormForecastChange" js/forecast-change.js
           grep -q "residual" js/marine.js
           grep -q "StormCoastal" js/coastal.js
