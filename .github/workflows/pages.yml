@@ -43,6 +43,13 @@ jobs:
           grep -q "StormNHC" js/nhc.js
           grep -q "StormEvent" js/event.js
           test -f scripts/capture-history.js
+          test -f manifest.webmanifest
+          test -f sw.js
+          grep -q "StormLifecycle" js/lifecycle.js
+          grep -q "StormSaved" js/saved.js
+          grep -q "StormSourceHealth" js/source-health.js
+          grep -q "StormForecastChange" js/forecast-change.js
+          grep -q "residual" js/marine.js
       - name: Guard against Saco-specific production hard coding
         run: |
           ! grep -RniE "8418150|44007|WEXM1|Saco Bay|Portland, Maine" index.html js css
