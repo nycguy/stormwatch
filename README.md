@@ -40,3 +40,10 @@ CI performs JavaScript syntax validation, deterministic module tests, architectu
 - NHC active-storm data provides conservative tropical context; local NWS alerts remain authoritative for local tropical event promotion.
 - A scheduled GitHub Actions collector captures representative nationwide weather snapshots every 30 minutes into `data/history/`, providing durable history independent of browser visits.
 - Deployment CI now runs deterministic unit tests, JavaScript syntax validation, architecture/hard-coding guards, and live upstream smoke tests against NWS, NHC, NOAA CO-OPS and NDBC.
+
+
+## Extended roadmap sprint
+
+The application now includes alert lifecycle transitions, saved and shareable locations, PWA/offline shell support, coastal station relevance scoring, observed-minus-predicted tide residuals, improved high-tide selection, richer winter/severe/rain/temperature metrics, source freshness utilities, forecast-evolution comparison utilities, shared regional-history lookup, richer scheduled forecast snapshots, mobile/accessibility hardening, and CI guards covering these capabilities.
+
+Shared history remains a hybrid design: representative regions are captured centrally every 30 minutes, while arbitrary user-selected locations retain local timestamped history until a scalable arbitrary-location backend is introduced.
