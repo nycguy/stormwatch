@@ -1,0 +1,1 @@
+window.StormWebcams=(()=>{const sources=[{name:"NPS Webcams",url:"https://www.nps.gov/media/webcam/view.htm",scope:"National Park Service"},{name:"NOAA Great Lakes cameras",url:"https://www.glerl.noaa.gov/metdata/",scope:"Great Lakes"}];function candidates(loc){return sources.map(x=>({...x,reason:"Potential public camera source near "+loc.label}));}return{candidates}})();
