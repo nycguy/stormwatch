@@ -67,3 +67,8 @@ Shared history is now driven by an extensible tracked-location registry rather t
 ## Arbitrary-location persistence boundary
 
 StormWatch now has an optional, vendor-neutral history API client and a runnable reference API. Selecting a location can register its normalized coordinate key with a configured backend. Exact persisted history is preferred when available; otherwise the application falls back to centrally captured regional history and then browser-local fixed-window history. The static GitHub Pages application therefore remains functional with no backend configured. See `docs/HISTORY_API.md` for the API contract. CI tests normalization, U.S. bounds, proximity lookup, fallback behavior and the reference server.
+
+
+## Deployable persistent-history service
+
+A Cloudflare Worker + D1 implementation now lives in `worker/`. It implements the vendor-neutral history contract, idempotent location registration, normalized location keys, nearest-location history lookup, twice-hourly scheduled NWS snapshot capture, eight-day retention, CORS, and bounded capture of the most recently used locations. CI validates the implementation and D1 schema. The Worker is not automatically deployed and `historyApi` remains blank until a StormWatch-specific Cloudflare Worker and D1 database are explicitly provisioned and verified.
