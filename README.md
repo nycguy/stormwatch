@@ -52,3 +52,8 @@ Shared history remains a hybrid design: representative regions are captured cent
 ## Weather-intelligence sprint
 
 StormWatch now supports NOAA/NWS radar and alert-area map overlays, event-specific visual states, NOAA station flood-threshold context where metadata is published, 24-hour and 72-hour fixed-window narratives, explicit alert upgrade/downgrade/extension/expiration transitions, observation freshness in source health, and additional coastal residual context. Live upstream smoke tests report public-service failures without blocking an otherwise valid deployment, while deterministic application tests remain deployment-gating.
+
+
+## Forecast evolution sprint
+
+StormWatch now compares centrally captured regional forecasts by valid period, generates concise forecast-shift narratives, exposes alert onset/expiration timing, reads shared 24-hour and 72-hour regional snapshots, captures coastal water levels in scheduled history, and displays the highest NOAA astronomical water-level prediction in the next 72 hours. Astronomical predictions are intentionally kept distinct from the observed-minus-predicted residual used as a surge signal.
