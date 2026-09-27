@@ -31,3 +31,8 @@ console.log("Persistence contract tests passed");
 
 c=load("js/saved.js",{localStorage:{getItem:()=>null,setItem:()=>{}},location:{search:"?lat=999&lon=-73",href:"https://example.test/"},URLSearchParams,URL});assert.strictEqual(c.StormSaved.fromUrl(),null);
 console.log("Location isolation and URL validation tests passed");
+
+c=load("js/event.js");const now=Date.now(),iso=t=>new Date(t).toISOString();let acc=c.StormEvent.total({values:[{validTime:iso(now)+"/PT6H",value:12.7},{validTime:iso(now+6*3600000)+"/PT6H",value:12.7}]},12,now);assert(Math.abs(acc-25.4)<.01);
+c=load("js/hourly.js",{Date});let hp=Array.from({length:24},(_,i)=>({startTime:new Date(Date.now()+i*3600000).toISOString(),temperature:40+i%6,windSpeed:(10+i%4)+" mph",shortForecast:"Cloudy",probabilityOfPrecipitation:{value:20}}));assert.strictEqual(c.StormHourly.blocks(hp).length,4);
+c=load("js/coastal.js",{fetch:async()=>({ok:true,json:async()=>({nws_minor:9,nws_moderate:10,nws_major:11})})});assert.deepStrictEqual(JSON.parse(JSON.stringify(c.StormCoastal.thresholds({nws_minor:9,nws_moderate:10,nws_major:11}))),{minor:9,moderate:10,major:11});
+console.log("24-hour accumulation, hourly timeline, and NOAA flood metadata tests passed");
