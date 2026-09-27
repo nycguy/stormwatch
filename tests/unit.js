@@ -61,3 +61,8 @@ console.log("Hazard timing, coastal outlook, and provenance tests passed");
 
 c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({}),text:async()=>""}),URLSearchParams,Date});let ex=c.StormMarine.forecastExtrema([{time:"2099-01-01 00:00",value:2},{time:"2099-01-01 06:00",value:7},{time:"2099-01-01 12:00",value:1}]);assert.strictEqual(ex.peak.value,7);assert.strictEqual(ex.low.value,1);assert.strictEqual(ex.range,6);
 console.log("Tidal extrema tests passed");
+
+c=load("js/hourly.js",{Date});const pn=Date.parse("2026-09-28T00:00:00Z"),wetPeriods=Array.from({length:8},(_,i)=>({startTime:new Date(pn+i*3600000).toISOString(),endTime:new Date(pn+(i+1)*3600000).toISOString(),temperature:60,windSpeed:"10 mph",shortForecast:i>=2&&i<=4?"Rain":"Cloudy",probabilityOfPrecipitation:{value:i>=2&&i<=4?70:10},isDaytime:i>=6}));let pw=c.StormHourly.precipWindow(wetPeriods,pn,8);assert(pw.start.includes("02:00:00"));assert(pw.end.includes("05:00:00"));let bl=c.StormHourly.blocks(wetPeriods,pn,8,4);assert.strictEqual(bl[0].daypart,"Night");assert.strictEqual(bl[1].daypart,"Transition");
+c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({}),text:async()=>""}),URLSearchParams,Date});let rt=c.StormMarine.residualTrend([{time:"2026-09-28 00:00",residual:.1},{time:"2026-09-28 06:00",residual:.5}]);assert.strictEqual(rt.direction,"rising");assert(Math.abs(rt.delta-.4)<.001);
+c=load("js/next.js",{Date});let nx=c.StormNext.build({precip:{type:"rain",start:"2026-09-28T02:00:00Z",end:"2026-09-28T05:00:00Z",peakPop:80},peakWind:{value:45,time:"2026-09-28T04:00:00Z"}});assert.strictEqual(nx.length,2);assert(nx[0].includes("Strongest stated wind"));
+console.log("Precipitation window, daylight, surge trend, and next-summary tests passed");
