@@ -71,7 +71,7 @@ StormWatch now has an optional, vendor-neutral history API client and a runnable
 
 ## Deployable persistent-history service
 
-A Cloudflare Worker + D1 implementation now lives in `worker/`. It implements the vendor-neutral history contract, idempotent location registration, normalized location keys, nearest-location history lookup, twice-hourly scheduled NWS snapshot capture, eight-day retention, CORS, and bounded capture of the most recently used locations. CI validates the implementation and D1 schema. The Worker is not automatically deployed and `historyApi` remains blank until a StormWatch-specific Cloudflare Worker and D1 database are explicitly provisioned and verified.
+A Cloudflare Worker + D1 implementation now lives in `worker/`. It implements the vendor-neutral history contract, idempotent location registration, normalized location keys, nearest-location history lookup, five-minute bounded NWS snapshot batches, eight-day retention, CORS, stale-location deactivation, capture diagnostics, and oldest-first rotation across recently used locations. CI validates the implementation and D1 schema. The Worker is not automatically deployed and `historyApi` remains blank until a StormWatch-specific Cloudflare Worker and D1 database are explicitly provisioned and verified.
 
 
 ## Correctness hardening
