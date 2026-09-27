@@ -15,4 +15,9 @@ c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({stations:[]}),te
 
 c=load("js/coastal.js",{fetch:async()=>({ok:true,json:async()=>({})})});assert.strictEqual(c.StormCoastal.classify(10,{minor:9,moderate:11,major:13}),"minor");assert.strictEqual(c.StormCoastal.margin(8.5,{minor:9}),.5);
 const lifeStore={};c=load("js/lifecycle.js",{localStorage:{getItem:k=>lifeStore[k]||null,setItem:(k,v)=>lifeStore[k]=v}});let a=[{id:"x",properties:{event:"Flood Warning",severity:"Moderate",expires:"2026-01-01"}}];assert.strictEqual(c.StormLifecycle.compare(a)[0].type,"issued");a=[{id:"x",properties:{event:"Flood Warning",severity:"Severe",expires:"2026-01-01"}}];assert.strictEqual(c.StormLifecycle.compare(a)[0].type,"upgraded");
-console.log("Coastal and lifecycle tests passed");
+
+
+c=load("js/timing.js");let ti=c.StormTiming.alerts([{properties:{event:"Winter Storm Warning",onset:new Date(Date.now()+7200000).toISOString(),expires:new Date(Date.now()+21600000).toISOString()}}]);assert(ti[0].minutesToOnset>=119&&ti[0].minutesToOnset<=121);assert(c.StormTiming.label(ti[0]).includes("begins in"));
+c=load("js/forecast-change.js");fc=c.StormForecastChange.compare({periods:[{startTime:"x",temperature:40,shortForecast:"Rain",windSpeed:"10 mph"}]},{periods:[{startTime:"x",temperature:46,shortForecast:"Snow",windSpeed:"20 mph"}]});assert(fc.shifts.length>=2);assert(c.StormForecastChange.narrative(fc).includes("Forecast changes"));
+c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({stations:[]}),text:async()=>""}),URLSearchParams,Date});let pk=c.StormMarine.forecastPeak([{time:"2099-01-01 00:00",value:3},{time:"2099-01-01 01:00",value:5}]);assert.strictEqual(pk.value,5);
+console.log("Forecast timing and water prediction tests passed");
