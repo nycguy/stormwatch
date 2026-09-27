@@ -39,3 +39,8 @@ console.log("24-hour accumulation, hourly timeline, and NOAA flood metadata test
 
 c=load("js/hazards.js");assert.strictEqual(c.StormHazards.modeled({snowIn:3}),"winter");assert.strictEqual(c.StormHazards.modeled({rainIn:1.2}),"flood");assert.strictEqual(c.StormHazards.modeled({gustMph:45}),"wind");assert.strictEqual(c.StormHazards.modeled({}),"routine");
 console.log("Modeled hazard promotion tests passed");
+
+c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({}),text:async()=>""}),URLSearchParams,Date});let rr=c.StormMarine.matchResidual([{t:"2026-09-28 12:06",v:"4.20"}],[{t:"2026-09-28 12:00",v:"3.80"},{t:"2026-09-28 12:06",v:"3.90"}]);assert(Math.abs(rr.residual-.3)<.001);assert.strictEqual(rr.matchMinutes,0);assert.strictEqual(c.StormMarine.matchResidual([{t:"2026-09-28 12:20",v:"4"}],[{t:"2026-09-28 12:00",v:"3"}],8),null);
+c=load("js/nhc.js",{fetch:async()=>({ok:true,json:async()=>({activeStorms:[]})})});assert.deepStrictEqual(JSON.parse(JSON.stringify(c.StormNHC.point({latitude:"25.5N",longitude:"70.2W"}))),{lat:25.5,lon:-70.2});
+c=load("js/impact.js");let ib=c.StormImpact.fromHourly("wind",[{start:new Date(),summary:"Cloudy",wind:35,pop:10}],{gustMph:45});assert.strictEqual(ib[0].title,"Strong-wind concern");
+console.log("Marine residual, NHC coordinate, and hourly impact tests passed");
