@@ -57,3 +57,8 @@ StormWatch now supports NOAA/NWS radar and alert-area map overlays, event-specif
 ## Forecast evolution sprint
 
 StormWatch now compares centrally captured regional forecasts by valid period, generates concise forecast-shift narratives, exposes alert onset/expiration timing, reads shared 24-hour and 72-hour regional snapshots, captures coastal water levels in scheduled history, and displays the highest NOAA astronomical water-level prediction in the next 72 hours. Astronomical predictions are intentionally kept distinct from the observed-minus-predicted residual used as a surge signal.
+
+
+## Impact and persistence sprint
+
+Shared history is now driven by an extensible tracked-location registry rather than locations embedded in collector code, with NYC Metro added alongside nationwide coastal regions. Event timelines adapt their language to winter, flood, wind, severe, tropical, heat and cold signals. StormWatch also includes a conservative public-camera discovery registry: it identifies potential authoritative/public registries but does not promote an individual camera until geographic relevance is verified. CI now includes static browser/mobile contract tests in addition to deterministic data tests and live upstream smoke checks.
