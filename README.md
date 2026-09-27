@@ -23,3 +23,12 @@ No changes are made to `nycguy/saco-coast-watch`.
 
 
 Deployment trigger: GitHub Pages enabled for the public repository.
+
+
+## Current production capabilities
+
+StormWatch now includes dynamic NWS point/office/zone discovery, forecasts, observations and alerts; adaptive event classification; an impact timeline; location-scoped fixed-window history and change briefings; and dynamic NOAA CO-OPS/NDBC marine discovery that stays out of the primary experience when no nearby source qualifies.
+
+## Validation
+
+CI performs JavaScript syntax validation, deterministic module tests, architecture guards, and Saco-specific hard-coding guards before the Pages deployment job. See `docs/VALIDATION.md` for the nationwide geographic test matrix.
