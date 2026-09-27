@@ -3,4 +3,7 @@ function load(path,ctx={}){ctx.window=ctx;ctx.console=console;vm.createContext(c
 let c=load("js/hazards.js");assert.deepStrictEqual(Array.from(c.StormHazards.classify([{properties:{event:"Hurricane Warning"}}])),["tropical"]);assert.strictEqual(c.StormHazards.primary([{properties:{event:"Blizzard Warning"}}]),"winter");assert.strictEqual(c.StormHazards.primary([]),"routine");
 c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({stations:[]}),text:async()=>""}),URLSearchParams});const d=c.StormMarine.dist(40,-74,40,-74);assert(d<0.001);assert(c.StormMarine.dist(40,-74,41,-74)>100);
 const store={};c=load("js/history.js",{localStorage:{getItem:k=>store[k]||null,setItem:(k,v)=>store[k]=v},Date});c.StormHistory.capture({locationKey:"A",temperature:50,alertCount:0});c.StormHistory.capture({locationKey:"B",temperature:80,alertCount:2});assert.strictEqual(c.StormHistory.read().length,2);assert.strictEqual(c.StormHistory.nearest("A",24),null);
-console.log("StormWatch deterministic module tests passed");
+
+c=load("js/event.js");let m=c.StormEvent.analyze({properties:{quantitativePrecipitation:{values:[{validTime:new Date().toISOString()+"/PT1H",value:25.4}]},snowfallAmount:{values:[]},windGust:{values:[{validTime:new Date().toISOString()+"/PT1H",value:10}]},temperature:{values:[]}}});assert(Math.abs(m.rainIn-1)<.01);assert(m.gustMph>22&&m.gustMph<23);
+c=load("js/nhc.js",{fetch:async()=>({ok:true,json:async()=>({activeStorms:[]})})});assert.deepStrictEqual(Array.from(c.StormNHC.relevant([],40,-74)),[]);
+console.log("Event and NHC tests passed");
