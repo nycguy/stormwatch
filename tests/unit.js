@@ -22,7 +22,7 @@ c=load("js/forecast-change.js");fc=c.StormForecastChange.compare({periods:[{star
 c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({stations:[]}),text:async()=>""}),URLSearchParams,Date});let pk=c.StormMarine.forecastPeak([{time:"2099-01-01 00:00",value:3},{time:"2099-01-01 01:00",value:5}]);assert.strictEqual(pk.value,5);
 
 
-c=load("js/impact.js");let im=c.StormImpact.build("winter",[{name:"Tonight",shortForecast:"Snow",windSpeed:"20 mph"}],{snowIn:5});assert.strictEqual(im[0].title,"Snow/ice impacts possible");
+c=load("js/impact.js");let im=c.StormImpact.build("winter",[{name:"Tonight",shortForecast:"Snow",windSpeed:"20 mph"}],{snowIn:5});assert.strictEqual(im[0].title,"Winter impacts possible");
 c=load("js/webcams.js");assert.strictEqual(c.StormWebcams.candidates({label:"Test",lat:40,lon:-74}).length,0);
 
 
