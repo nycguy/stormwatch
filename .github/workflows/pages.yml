@@ -32,6 +32,8 @@ jobs:
           for f in js/*.js tests/*.js; do node --check "$f"; done
       - name: Deterministic unit tests
         run: node tests/unit.js
+      - name: History API reference tests
+        run: node tests/history-api.js
       - name: Browser and mobile contract tests
         run: node tests/browser-contract.js
       - name: Live public-source smoke tests
@@ -65,6 +67,10 @@ jobs:
           grep -q "StormImpact" js/impact.js
           grep -q "StormWebcams" js/webcams.js
           test -f data/tracked-locations.json
+          grep -q "historyApi" js/config.js
+          grep -q "StormPersistence" js/persistence.js
+          test -f docs/HISTORY_API.md
+          test -f server/history-api-reference.js
       - name: Guard against Saco-specific production hard coding
         run: |
           ! grep -RniE "8418150|44007|WEXM1|Saco Bay|Portland, Maine" index.html js css
