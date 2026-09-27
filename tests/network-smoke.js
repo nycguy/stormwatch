@@ -6,6 +6,7 @@ const tests=[
  ["NWS San Diego","https://api.weather.gov/points/32.7157,-117.1611"],
  ["NHC current storms","https://www.nhc.noaa.gov/CurrentStorms.json"],
  ["NOAA station metadata","https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json?type=waterlevels"],
- ["NDBC latest observations","https://www.ndbc.noaa.gov/data/latest_obs/latest_obs.txt"]
+ ["NDBC latest observations","https://www.ndbc.noaa.gov/data/latest_obs/latest_obs.txt"],
+ ["NOAA radar WMS","https://opengeo.ncep.noaa.gov/geoserver/conus/conus_bref_qcd/ows?service=WMS&request=GetCapabilities"]
 ];
 (async()=>{let fail=0;for(const [name,url] of tests){try{const r=await fetch(url,{headers:{"User-Agent":"StormWatch CI github.com/nycguy/stormwatch"}});console.log(name,r.status,r.headers.get("content-type")||"");if(!r.ok)fail++}catch(e){console.error(name,e.message);fail++}}if(fail)process.exit(1)})();
