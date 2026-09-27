@@ -33,6 +33,7 @@ jobs:
       - name: Deterministic unit tests
         run: node tests/unit.js
       - name: Live public-source smoke tests
+        continue-on-error: true
         run: node tests/network-smoke.js
       - name: Nationwide architecture guards
         run: |
@@ -50,6 +51,10 @@ jobs:
           grep -q "StormSourceHealth" js/source-health.js
           grep -q "StormForecastChange" js/forecast-change.js
           grep -q "residual" js/marine.js
+          grep -q "StormCoastal" js/coastal.js
+          grep -q "StormRadar" js/radar.js
+          grep -q "nws-alert-fill" js/map.js
+          grep -q "comparisons" js/history.js
       - name: Guard against Saco-specific production hard coding
         run: |
           ! grep -RniE "8418150|44007|WEXM1|Saco Bay|Portland, Maine" index.html js css
