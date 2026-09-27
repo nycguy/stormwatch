@@ -40,6 +40,8 @@ jobs:
         run: node tests/browser-contract.js
       - name: Cross-module integration contracts
         run: node tests/integration-contract.js
+      - name: Production intelligence regression tests
+        run: node tests/production-intelligence.js
       - name: Live public-source smoke tests
         continue-on-error: true
         run: node tests/network-smoke.js
