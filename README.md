@@ -51,7 +51,7 @@ Shared history remains a hybrid design: representative regions are captured cent
 
 ## Weather-intelligence sprint
 
-StormWatch now supports NOAA/NWS radar and alert-area map overlays, event-specific visual states, NOAA station flood-threshold context where metadata is published, 24-hour and 72-hour fixed-window narratives, explicit alert upgrade/downgrade/extension/expiration transitions, observation freshness in source health, and additional coastal residual context. Live upstream smoke tests report public-service failures without blocking an otherwise valid deployment, while deterministic application tests remain deployment-gating.
+StormWatch supports NWS alert-area map overlays; the NOAA radar control is intentionally disabled until a tile-compatible MapLibre integration is verified. event-specific visual states, NOAA station flood-threshold context where metadata is published, 24-hour and 72-hour fixed-window narratives, explicit alert upgrade/downgrade/extension/expiration transitions, observation freshness in source health, and additional coastal residual context. Live upstream smoke tests report public-service failures without blocking an otherwise valid deployment, while deterministic application tests remain deployment-gating.
 
 
 ## Forecast evolution sprint
@@ -61,7 +61,7 @@ StormWatch now compares centrally captured regional forecasts by valid period, g
 
 ## Impact and persistence sprint
 
-Shared history is now driven by an extensible tracked-location registry rather than locations embedded in collector code, with NYC Metro added alongside nationwide coastal regions. Event timelines adapt their language to winter, flood, wind, severe, tropical, heat and cold signals. StormWatch also includes a conservative public-camera discovery registry: it identifies potential authoritative/public registries but does not promote an individual camera until geographic relevance is verified. CI now includes static browser/mobile contract tests in addition to deterministic data tests and live upstream smoke checks.
+Shared history is now driven by an extensible tracked-location registry rather than locations embedded in collector code, with the Lower Hudson Valley seed alongside nationwide coastal regions. Event timelines adapt their language to winter, flood, wind, severe, tropical, heat and cold signals. Generic webcam registry suggestions were removed because they were not truly geographic; camera UI remains hidden until a source can be verified for the selected location. CI now includes static browser/mobile contract tests in addition to deterministic data tests and live upstream smoke checks.
 
 
 ## Arbitrary-location persistence boundary
@@ -72,3 +72,8 @@ StormWatch now has an optional, vendor-neutral history API client and a runnable
 ## Deployable persistent-history service
 
 A Cloudflare Worker + D1 implementation now lives in `worker/`. It implements the vendor-neutral history contract, idempotent location registration, normalized location keys, nearest-location history lookup, twice-hourly scheduled NWS snapshot capture, eight-day retention, CORS, and bounded capture of the most recently used locations. CI validates the implementation and D1 schema. The Worker is not automatically deployed and `historyApi` remains blank until a StormWatch-specific Cloudflare Worker and D1 database are explicitly provisioned and verified.
+
+
+## Correctness hardening
+
+The current build derives the next-24-hour timeline from NWS hourly forecasts, accumulates NWS grid precipitation/snow/ice across valid-time intervals, scopes alert lifecycle state by location, prevents stale requests from overwriting a newer selected location, resets location-specific UI before each load, uses the documented NOAA flood-level resource, and time-aligns observed and predicted NOAA water levels before reporting a surge residual. Scheduled regional history caches the NOAA station catalog per run and serializes repository writes to reduce push conflicts.
