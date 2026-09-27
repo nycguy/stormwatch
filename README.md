@@ -113,3 +113,10 @@ StormWatch is now organized around decisions rather than data feeds. After a loc
 Quiet weather is an intentional product state: the briefing states when no significant hazard is indicated, preserves current conditions and the next meaningful transition, and de-emphasizes empty hazard detail. During meaningful weather, event styling strengthens and verified NOAA/NWS radar is automatically promoted on the map.
 
 Fixed-window changes are incorporated into the top story when meaningful, while the full What Changed panel remains available below. Technical source health has moved into a collapsed diagnostics section so engineering metadata does not compete with the user's weather briefing.
+
+
+## Interactive functionality release
+
+StormWatch now supports planning decisions, not just weather inspection. The 24-hour planner scores hourly conditions for Outdoor, Exercise, and Travel / commute profiles and identifies the strongest usable window based on precipitation, hazardous weather type, wind, and temperature. An hourly precipitation-probability visualization makes onset and clearing trends directly visible.
+
+The planner also exposes forecast-derived daylight transitions and a compact forecast-confidence indicator. Users can open Compare, enter a second U.S. city or ZIP, and retrieve a side-by-side NWS comparison covering active alerts, peak wind, precipitation probability, 24-hour temperature range, and best outdoor-weather score.
