@@ -1,0 +1,11 @@
+name = "stormwatch-history"
+main = "worker/history-worker.js"
+compatibility_date = "2026-09-01"
+
+[triggers]
+crons = ["17,47 * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "stormwatch-history"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
