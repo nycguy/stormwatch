@@ -62,3 +62,8 @@ StormWatch now compares centrally captured regional forecasts by valid period, g
 ## Impact and persistence sprint
 
 Shared history is now driven by an extensible tracked-location registry rather than locations embedded in collector code, with NYC Metro added alongside nationwide coastal regions. Event timelines adapt their language to winter, flood, wind, severe, tropical, heat and cold signals. StormWatch also includes a conservative public-camera discovery registry: it identifies potential authoritative/public registries but does not promote an individual camera until geographic relevance is verified. CI now includes static browser/mobile contract tests in addition to deterministic data tests and live upstream smoke checks.
+
+
+## Arbitrary-location persistence boundary
+
+StormWatch now has an optional, vendor-neutral history API client and a runnable reference API. Selecting a location can register its normalized coordinate key with a configured backend. Exact persisted history is preferred when available; otherwise the application falls back to centrally captured regional history and then browser-local fixed-window history. The static GitHub Pages application therefore remains functional with no backend configured. See `docs/HISTORY_API.md` for the API contract. CI tests normalization, U.S. bounds, proximity lookup, fallback behavior and the reference server.
