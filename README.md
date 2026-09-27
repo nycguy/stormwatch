@@ -104,3 +104,12 @@ StormWatch now builds a compact "What matters next" summary from the highest-val
 Hourly intelligence identifies the first contiguous precipitation window and labels six-hour blocks as daylight, night, or a transition. Current conditions use the freshest usable observation from several nearby NWS stations rather than assuming the first station in the NWS list is current.
 
 Coastal context now includes the direction and magnitude of the recent six-hour observed-minus-predicted residual trend using time-matched NOAA observations and predictions. NWS alert records are deduplicated before counts, lifecycle comparison, map display, and severity prioritization. Individual source failures remain isolated and source health exposes source-specific degradation context.
+
+
+## User-first product transformation
+
+StormWatch is now organized around decisions rather than data feeds. After a location resolves, the primary surface is a plain-English local weather briefing answering what is happening, what matters, when the next change occurs, and whether an official NWS hazard is driving the outlook. A Now / Next / Later strip compresses the next 24 hours into three scannable phases.
+
+Quiet weather is an intentional product state: the briefing states when no significant hazard is indicated, preserves current conditions and the next meaningful transition, and de-emphasizes empty hazard detail. During meaningful weather, event styling strengthens and verified NOAA/NWS radar is automatically promoted on the map.
+
+Fixed-window changes are incorporated into the top story when meaningful, while the full What Changed panel remains available below. Technical source health has moved into a collapsed diagnostics section so engineering metadata does not compete with the user's weather briefing.
