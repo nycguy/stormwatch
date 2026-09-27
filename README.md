@@ -77,3 +77,12 @@ A Cloudflare Worker + D1 implementation now lives in `worker/`. It implements th
 ## Correctness hardening
 
 The current build derives the next-24-hour timeline from NWS hourly forecasts, accumulates NWS grid precipitation/snow/ice across valid-time intervals, scopes alert lifecycle state by location, prevents stale requests from overwriting a newer selected location, resets location-specific UI before each load, uses the documented NOAA flood-level resource, and time-aligns observed and predicted NOAA water levels before reporting a surge residual. Scheduled regional history caches the NOAA station catalog per run and serializes repository writes to reduce push conflicts.
+
+
+## Live intelligence and resilience sprint
+
+StormWatch now refreshes the selected location every five minutes while the app is visible, pauses automatic network work while the browser is offline or hidden, and shows the last successful live-data check. Source diagnostics cover NWS point/forecast/observation/alert feeds plus NOAA water levels, NDBC marine observations, radar availability, and fixed-window history. Marine catalog requests are cached in-memory and stale NDBC rows are excluded from automatic station promotion.
+
+The next-24-hour experience now identifies the next meaningful hourly transition and the timing of peak stated wind and precipitation probability. Event impact headlines are evaluated per six-hour block rather than applying a 24-hour aggregate hazard label to every block.
+
+Central regional or persistent history can now feed the main 24-hour/72-hour briefing on a first visit. Browser-local exact-location history remains preferred when available, while centrally captured forecast and coastal snapshots provide durable fallback comparisons. Coastal local history also tracks changes in surge residual and the 72-hour astronomical peak.
