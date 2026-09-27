@@ -32,6 +32,8 @@ jobs:
           for f in js/*.js tests/*.js; do node --check "$f"; done
       - name: Deterministic unit tests
         run: node tests/unit.js
+      - name: Cloudflare history implementation tests
+        run: node tests/cloudflare-history.js
       - name: History API reference tests
         run: node tests/history-api.js
       - name: Browser and mobile contract tests
@@ -71,6 +73,12 @@ jobs:
           grep -q "StormPersistence" js/persistence.js
           test -f docs/HISTORY_API.md
           test -f server/history-api-reference.js
+          test -f worker/history-worker.js
+          test -f worker/schema.sql
+          test -f wrangler.toml
+          grep -q "scheduled" worker/history-worker.js
+          grep -q "snapshots" worker/schema.sql
+          test -f docs/CLOUDFLARE_HISTORY.md
       - name: Guard against Saco-specific production hard coding
         run: |
           ! grep -RniE "8418150|44007|WEXM1|Saco Bay|Portland, Maine" index.html js css
