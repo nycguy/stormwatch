@@ -6,4 +6,9 @@ const store={};c=load("js/history.js",{localStorage:{getItem:k=>store[k]||null,s
 
 c=load("js/event.js");let m=c.StormEvent.analyze({properties:{quantitativePrecipitation:{values:[{validTime:new Date().toISOString()+"/PT1H",value:25.4}]},snowfallAmount:{values:[]},windGust:{values:[{validTime:new Date().toISOString()+"/PT1H",value:10}]},temperature:{values:[]}}});assert(Math.abs(m.rainIn-1)<.01);assert(m.gustMph>22&&m.gustMph<23);
 c=load("js/nhc.js",{fetch:async()=>({ok:true,json:async()=>({activeStorms:[]})})});assert.deepStrictEqual(Array.from(c.StormNHC.relevant([],40,-74)),[]);
-console.log("Event and NHC tests passed");
+
+
+c=load("js/forecast-change.js");let fc=c.StormForecastChange.compare({periods:[{temperature:40,shortForecast:"Rain",windSpeed:"10 mph"}]},{periods:[{temperature:45,shortForecast:"Snow",windSpeed:"25 mph"}]});assert.strictEqual(fc.peakWindDelta,15);assert.strictEqual(fc.firstTemperatureDelta,5);assert.strictEqual(fc.summaryChanged,true);
+c=load("js/source-health.js",{Date});assert.strictEqual(c.StormSourceHealth.status(new Date().toISOString()).state,"Fresh");
+c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({stations:[]}),text:async()=>""}),URLSearchParams,Date});assert.strictEqual(c.StormMarine.nextHigh([{type:"L",time:"2099-01-01 00:00"},{type:"H",time:"2099-01-01 01:00"}]).type,"H");
+console.log("Extended roadmap module tests passed");
