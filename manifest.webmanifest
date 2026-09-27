@@ -1,0 +1,17 @@
+{
+  "name": "StormWatch",
+  "short_name": "StormWatch",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#071a27",
+  "theme_color": "#071a27",
+  "description": "Nationwide U.S. weather and coastal intelligence",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
