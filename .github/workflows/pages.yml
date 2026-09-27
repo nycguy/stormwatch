@@ -65,7 +65,12 @@ jobs:
           grep -q "StormPlanner" js/planner.js
           grep -q "StormCompare" js/compare.js
           grep -q "StormDaylight" js/daylight.js
+          grep -q "StormCalendar" js/calendar.js
+          grep -q "StormTrend" js/trend.js
           grep -q "StormTriggers" js/triggers.js
+          grep -q "calendarPanel" index.html
+          grep -q "readinessPanel" index.html
+          grep -q "trendPanel" index.html
           grep -q "StormWatchboard" js/watchboard.js
           grep -q "actionPanel" index.html
           grep -q "routePanel" index.html
