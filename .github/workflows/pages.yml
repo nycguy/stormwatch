@@ -32,12 +32,17 @@ jobs:
           for f in js/*.js tests/*.js; do node --check "$f"; done
       - name: Deterministic unit tests
         run: node tests/unit.js
+      - name: Live public-source smoke tests
+        run: node tests/network-smoke.js
       - name: Nationwide architecture guards
         run: |
           grep -q "locationKey" js/history.js
           grep -q "forecastHourly" js/nws.js
           grep -q "forecastGridData" js/nws.js
           grep -q "eventPanel" index.html
+          grep -q "StormNHC" js/nhc.js
+          grep -q "StormEvent" js/event.js
+          test -f scripts/capture-history.js
       - name: Guard against Saco-specific production hard coding
         run: |
           ! grep -RniE "8418150|44007|WEXM1|Saco Bay|Portland, Maine" index.html js css
