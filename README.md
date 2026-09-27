@@ -51,7 +51,7 @@ Shared history remains a hybrid design: representative regions are captured cent
 
 ## Weather-intelligence sprint
 
-StormWatch supports NWS alert-area map overlays; the NOAA radar control is intentionally disabled until a tile-compatible MapLibre integration is verified. event-specific visual states, NOAA station flood-threshold context where metadata is published, 24-hour and 72-hour fixed-window narratives, explicit alert upgrade/downgrade/extension/expiration transitions, observation freshness in source health, and additional coastal residual context. Live upstream smoke tests report public-service failures without blocking an otherwise valid deployment, while deterministic application tests remain deployment-gating.
+StormWatch supports NWS alert-area map overlays and an official NOAA/NWS MRMS base-reflectivity radar overlay through the NWS ArcGIS REST MapServer. event-specific visual states, NOAA station flood-threshold context where metadata is published, 24-hour and 72-hour fixed-window narratives, explicit alert upgrade/downgrade/extension/expiration transitions, observation freshness in source health, and additional coastal residual context. Live upstream smoke tests report public-service failures without blocking an otherwise valid deployment, while deterministic application tests remain deployment-gating.
 
 
 ## Forecast evolution sprint
