@@ -67,6 +67,9 @@ jobs:
           grep -q "coastal" scripts/capture-history.js
           grep -q "tracked-locations" scripts/capture-history.js
           grep -q "StormImpact" js/impact.js
+          grep -q "StormHourly" js/hourly.js
+          grep -q "floodlevels.json" js/coastal.js
+          grep -q "durationMs" js/event.js
           grep -q "StormWebcams" js/webcams.js
           test -f data/tracked-locations.json
           grep -q "historyApi" js/config.js
