@@ -95,3 +95,12 @@ StormWatch now derives hazard timing directly from NWS grid valid-time intervals
 Active alerts are prioritized by severity, urgency, and onset. The adaptive event panel includes an evidence/provenance line showing which authoritative inputs support the current focus, such as an official NWS alert, NWS forecast grid, NWS hourly forecast, current observation, or fixed-window history. The evidence label is not a probability forecast.
 
 For NOAA coastal stations, the 72-hour astronomical peak is compared with the station's available minor-flood threshold and is shown with its timing and 72-hour tidal range. Observed-minus-predicted residual remains separate from astronomical prediction so StormWatch does not imply that tide prediction alone is a total-water-level forecast.
+
+
+## Near-term decision intelligence sprint
+
+StormWatch now builds a compact "What matters next" summary from the highest-value near-term signals instead of simply repeating every metric. Official alerts are prioritized first, followed by hazardous precipitation windows, strong-wind timing, coastal peaks close to station flood thresholds, and meaningful hourly forecast transitions.
+
+Hourly intelligence identifies the first contiguous precipitation window and labels six-hour blocks as daylight, night, or a transition. Current conditions use the freshest usable observation from several nearby NWS stations rather than assuming the first station in the NWS list is current.
+
+Coastal context now includes the direction and magnitude of the recent six-hour observed-minus-predicted residual trend using time-matched NOAA observations and predictions. NWS alert records are deduplicated before counts, lifecycle comparison, map display, and severity prioritization. Individual source failures remain isolated and source health exposes source-specific degradation context.
