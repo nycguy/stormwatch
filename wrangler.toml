@@ -3,7 +3,7 @@ main = "worker/history-worker.js"
 compatibility_date = "2026-09-01"
 
 [triggers]
-crons = ["17,47 * * * *"]
+crons = ["*/5 * * * *"]
 
 [[d1_databases]]
 binding = "DB"
