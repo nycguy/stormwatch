@@ -1,0 +1,24 @@
+name: Capture shared weather history
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Capture representative nationwide snapshots
+        run: node scripts/capture-history.js
+      - name: Commit changed history
+        run: |
+          git config user.name "stormwatch-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Capture nationwide weather history"
+          git push
