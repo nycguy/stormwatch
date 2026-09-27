@@ -129,3 +129,10 @@ StormWatch can now identify the first likely wet hour and provide a leave-by tim
 A persistent Weather Watchboard stores up to six locations locally and refreshes their NWS-derived temperature, alerts, wind, precipitation chance, and outdoor score together. Trip Weather accepts a destination and samples forecasts at the selected origin, three evenly spaced corridor points, and the destination. This is a weather-along-the-way screening tool, not turn-by-turn routing.
 
 The selected location's local briefing can also be shared through the device share sheet or copied as text where native sharing is unavailable.
+
+
+## Weekly planning and forecast evolution
+
+StormWatch now groups available hourly guidance into a multi-day weather calendar, scores each day for general outdoor usability, identifies the strongest forecast day, and summarizes available weekend days. The overnight and tomorrow-morning readiness cards isolate the periods people commonly care about before bed and before school or work.
+
+Forecast Evolution stores a compact location-specific snapshot of the future hourly forecast in browser storage. On a later refresh or visit it aligns overlapping valid-time hours and surfaces material changes: precipitation probability shifts of at least 25 percentage points, wind changes of at least 10 mph, and temperature changes of at least 8°F. The new snapshot then becomes the baseline for the next comparison.
