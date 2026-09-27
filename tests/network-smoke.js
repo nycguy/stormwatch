@@ -6,6 +6,7 @@ const tests=[
  ["NWS San Diego","https://api.weather.gov/points/32.7157,-117.1611"],
  ["NHC current storms","https://www.nhc.noaa.gov/CurrentStorms.json"],
  ["NOAA station metadata","https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json?type=waterlevels"],
+ ["NOAA Portland flood levels","https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/8418150/floodlevels.json"],
  ["NDBC latest observations","https://www.ndbc.noaa.gov/data/latest_obs/latest_obs.txt"],
  ["NOAA radar WMS","https://opengeo.ncep.noaa.gov/geoserver/conus/conus_bref_qcd/ows?service=WMS&request=GetCapabilities"]
 ];
