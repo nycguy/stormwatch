@@ -23,7 +23,7 @@ c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({stations:[]}),te
 
 
 c=load("js/impact.js");let im=c.StormImpact.build("winter",[{name:"Tonight",shortForecast:"Snow",windSpeed:"20 mph"}],{snowIn:5});assert.strictEqual(im[0].title,"Snow/ice impacts possible");
-c=load("js/webcams.js");assert(c.StormWebcams.candidates({label:"Test",lat:40,lon:-74}).length>0);
+c=load("js/webcams.js");assert.strictEqual(c.StormWebcams.candidates({label:"Test",lat:40,lon:-74}).length,0);
 
 
 c=load("js/persistence.js",{StormWatchConfig:{historyApi:""},fetch:async()=>{throw Error("should not fetch")}});let pn=c.StormPersistence.normalize({lat:41.2043,lon:-73.7271,label:"Mount Kisco"});assert.strictEqual(pn.key,"41.20,-73.73");c.StormPersistence.register(pn).then(x=>assert.strictEqual(x.mode,"static"));
@@ -36,3 +36,6 @@ c=load("js/event.js");const now=Date.now(),iso=t=>new Date(t).toISOString();let 
 c=load("js/hourly.js",{Date});let hp=Array.from({length:24},(_,i)=>({startTime:new Date(Date.now()+i*3600000).toISOString(),temperature:40+i%6,windSpeed:(10+i%4)+" mph",shortForecast:"Cloudy",probabilityOfPrecipitation:{value:20}}));assert.strictEqual(c.StormHourly.blocks(hp).length,4);
 c=load("js/coastal.js",{fetch:async()=>({ok:true,json:async()=>({nws_minor:9,nws_moderate:10,nws_major:11})})});assert.deepStrictEqual(JSON.parse(JSON.stringify(c.StormCoastal.thresholds({nws_minor:9,nws_moderate:10,nws_major:11}))),{minor:9,moderate:10,major:11});
 console.log("24-hour accumulation, hourly timeline, and NOAA flood metadata tests passed");
+
+c=load("js/hazards.js");assert.strictEqual(c.StormHazards.modeled({snowIn:3}),"winter");assert.strictEqual(c.StormHazards.modeled({rainIn:1.2}),"flood");assert.strictEqual(c.StormHazards.modeled({gustMph:45}),"wind");assert.strictEqual(c.StormHazards.modeled({}),"routine");
+console.log("Modeled hazard promotion tests passed");
