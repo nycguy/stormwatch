@@ -58,3 +58,6 @@ c=load("js/event.js");const timingNow=Date.parse("2026-09-28T00:00:00Z"),timingP
 c=load("js/coastal.js",{fetch:async()=>({ok:true,json:async()=>({})})});let co=c.StormCoastal.outlook(9.5,{minor:10,moderate:11,major:12});assert.strictEqual(co.classification,"below flood threshold");assert.strictEqual(co.minorMargin,.5);co=c.StormCoastal.outlook(10.2,{minor:10,moderate:11,major:12});assert.strictEqual(co.classification,"minor");assert(Math.abs(co.minorMargin+.2)<.001);
 c=load("js/confidence.js");assert.strictEqual(c.StormConfidence.assess({alerts:1,grid:true,hourly:true}).level,"high");assert(c.StormConfidence.provenance(["alert","grid"]).includes("Official NWS alert"));
 console.log("Hazard timing, coastal outlook, and provenance tests passed");
+
+c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({}),text:async()=>""}),URLSearchParams,Date});let ex=c.StormMarine.forecastExtrema([{time:"2099-01-01 00:00",value:2},{time:"2099-01-01 06:00",value:7},{time:"2099-01-01 12:00",value:1}]);assert.strictEqual(ex.peak.value,7);assert.strictEqual(ex.low.value,1);assert.strictEqual(ex.range,6);
+console.log("Tidal extrema tests passed");
