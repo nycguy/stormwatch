@@ -55,6 +55,10 @@ jobs:
           grep -q "StormRadar" js/radar.js
           grep -q "nws-alert-fill" js/map.js
           grep -q "comparisons" js/history.js
+          grep -q "StormTiming" js/timing.js
+          grep -q "forecastPeak" js/marine.js
+          grep -q "regionalAt" js/shared-history.js
+          grep -q "coastal" scripts/capture-history.js
       - name: Guard against Saco-specific production hard coding
         run: |
           ! grep -RniE "8418150|44007|WEXM1|Saco Bay|Portland, Maine" index.html js css
