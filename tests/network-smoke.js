@@ -8,6 +8,6 @@ const tests=[
  ["NOAA station metadata","https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json?type=waterlevels",async r=>{const j=await r.json();return Array.isArray(j.stations)&&j.stations.length>0}],
  ["NOAA Portland flood levels","https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/8418150/floodlevels.json",async r=>{const j=await r.json(),raw=j.floodlevels||j.floodLevels||j,x=Array.isArray(raw)?raw[0]||{}:raw;return ["nws_minor","nos_minor"].some(k=>Number.isFinite(+x[k]))}],
  ["NDBC latest observations","https://www.ndbc.noaa.gov/data/latest_obs/latest_obs.txt",async r=>(await r.text()).includes("#STN")],
- ["NOAA radar WMS","https://opengeo.ncep.noaa.gov/geoserver/conus/conus_bref_qcd/ows?service=WMS&request=GetCapabilities"]
+ ["NWS MRMS radar export","https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity/MapServer/export?bbox=-8300000,4900000,-8200000,5000000&bboxSR=3857&imageSR=3857&size=256,256&format=png32&transparent=true&f=image",async r=>(r.headers.get("content-type")||"").includes("image")]
 ];
 (async()=>{let fail=0;for(const [name,url,validate] of tests){try{const r=await fetch(url,{headers:{"User-Agent":"StormWatch CI github.com/nycguy/stormwatch"}}),clone=r.clone();let valid=r.ok;if(valid&&validate)valid=await validate(clone);console.log(name,r.status,r.headers.get("content-type")||"",valid?"valid":"INVALID");if(!valid)fail++}catch(e){console.error(name,e.message);fail++}}if(fail)process.exit(1)})();
