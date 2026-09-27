@@ -47,3 +47,8 @@ CI performs JavaScript syntax validation, deterministic module tests, architectu
 The application now includes alert lifecycle transitions, saved and shareable locations, PWA/offline shell support, coastal station relevance scoring, observed-minus-predicted tide residuals, improved high-tide selection, richer winter/severe/rain/temperature metrics, source freshness utilities, forecast-evolution comparison utilities, shared regional-history lookup, richer scheduled forecast snapshots, mobile/accessibility hardening, and CI guards covering these capabilities.
 
 Shared history remains a hybrid design: representative regions are captured centrally every 30 minutes, while arbitrary user-selected locations retain local timestamped history until a scalable arbitrary-location backend is introduced.
+
+
+## Weather-intelligence sprint
+
+StormWatch now supports NOAA/NWS radar and alert-area map overlays, event-specific visual states, NOAA station flood-threshold context where metadata is published, 24-hour and 72-hour fixed-window narratives, explicit alert upgrade/downgrade/extension/expiration transitions, observation freshness in source health, and additional coastal residual context. Live upstream smoke tests report public-service failures without blocking an otherwise valid deployment, while deterministic application tests remain deployment-gating.
