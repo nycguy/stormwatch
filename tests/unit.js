@@ -24,4 +24,7 @@ c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({stations:[]}),te
 
 c=load("js/impact.js");let im=c.StormImpact.build("winter",[{name:"Tonight",shortForecast:"Snow",windSpeed:"20 mph"}],{snowIn:5});assert.strictEqual(im[0].title,"Snow/ice impacts possible");
 c=load("js/webcams.js");assert(c.StormWebcams.candidates({label:"Test",lat:40,lon:-74}).length>0);
-console.log("Impact and discovery tests passed");
+
+
+c=load("js/persistence.js",{StormWatchConfig:{historyApi:""},fetch:async()=>{throw Error("should not fetch")}});let pn=c.StormPersistence.normalize({lat:41.2043,lon:-73.7271,label:"Mount Kisco"});assert.strictEqual(pn.key,"41.20,-73.73");c.StormPersistence.register(pn).then(x=>assert.strictEqual(x.mode,"static"));
+console.log("Persistence contract tests passed");
