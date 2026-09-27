@@ -120,3 +120,12 @@ Fixed-window changes are incorporated into the top story when meaningful, while 
 StormWatch now supports planning decisions, not just weather inspection. The 24-hour planner scores hourly conditions for Outdoor, Exercise, and Travel / commute profiles and identifies the strongest usable window based on precipitation, hazardous weather type, wind, and temperature. An hourly precipitation-probability visualization makes onset and clearing trends directly visible.
 
 The planner also exposes forecast-derived daylight transitions and a compact forecast-confidence indicator. Users can open Compare, enter a second U.S. city or ZIP, and retrieve a side-by-side NWS comparison covering active alerts, peak wind, precipitation probability, 24-hour temperature range, and best outdoor-weather score.
+
+
+## Action-oriented functionality release
+
+StormWatch can now identify the first likely wet hour and provide a leave-by time, plus the first and last dry hours in the next 24 hours. Users can query custom forecast thresholds for wind, temperature, and precipitation probability and receive the first expected crossing.
+
+A persistent Weather Watchboard stores up to six locations locally and refreshes their NWS-derived temperature, alerts, wind, precipitation chance, and outdoor score together. Trip Weather accepts a destination and samples forecasts at the selected origin, three evenly spaced corridor points, and the destination. This is a weather-along-the-way screening tool, not turn-by-turn routing.
+
+The selected location's local briefing can also be shared through the device share sheet or copied as text where native sharing is unavailable.
