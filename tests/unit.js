@@ -14,7 +14,7 @@ c=load("js/marine.js",{fetch:async()=>({ok:true,json:async()=>({stations:[]}),te
 
 
 c=load("js/coastal.js",{fetch:async()=>({ok:true,json:async()=>({})})});assert.strictEqual(c.StormCoastal.classify(10,{minor:9,moderate:11,major:13}),"minor");assert.strictEqual(c.StormCoastal.margin(8.5,{minor:9}),.5);
-const lifeStore={};c=load("js/lifecycle.js",{localStorage:{getItem:k=>lifeStore[k]||null,setItem:(k,v)=>lifeStore[k]=v}});let a=[{id:"x",properties:{event:"Flood Warning",severity:"Moderate",expires:"2026-01-01"}}];assert.strictEqual(c.StormLifecycle.compare(a)[0].type,"issued");a=[{id:"x",properties:{event:"Flood Warning",severity:"Severe",expires:"2026-01-01"}}];assert.strictEqual(c.StormLifecycle.compare(a)[0].type,"upgraded");
+const lifeStore={};c=load("js/lifecycle.js",{localStorage:{getItem:k=>lifeStore[k]||null,setItem:(k,v)=>lifeStore[k]=v}});let a=[{id:"x",properties:{event:"Flood Warning",severity:"Moderate",expires:"2026-01-01"}}];assert.strictEqual(c.StormLifecycle.compare("A",a)[0].type,"issued");assert.strictEqual(c.StormLifecycle.compare("B",[]).length,0);a=[{id:"x",properties:{event:"Flood Warning",severity:"Severe",expires:"2026-01-01"}}];assert.strictEqual(c.StormLifecycle.compare("A",a)[0].type,"upgraded");
 
 
 c=load("js/timing.js");let ti=c.StormTiming.alerts([{properties:{event:"Winter Storm Warning",onset:new Date(Date.now()+7200000).toISOString(),expires:new Date(Date.now()+21600000).toISOString()}}]);assert(ti[0].minutesToOnset>=119&&ti[0].minutesToOnset<=121);assert(c.StormTiming.label(ti[0]).includes("begins in"));
@@ -28,3 +28,6 @@ c=load("js/webcams.js");assert(c.StormWebcams.candidates({label:"Test",lat:40,lo
 
 c=load("js/persistence.js",{StormWatchConfig:{historyApi:""},fetch:async()=>{throw Error("should not fetch")}});let pn=c.StormPersistence.normalize({lat:41.2043,lon:-73.7271,label:"Mount Kisco"});assert.strictEqual(pn.key,"41.20,-73.73");c.StormPersistence.register(pn).then(x=>assert.strictEqual(x.mode,"static"));
 console.log("Persistence contract tests passed");
+
+c=load("js/saved.js",{localStorage:{getItem:()=>null,setItem:()=>{}},location:{search:"?lat=999&lon=-73",href:"https://example.test/"},URLSearchParams,URL});assert.strictEqual(c.StormSaved.fromUrl(),null);
+console.log("Location isolation and URL validation tests passed");
