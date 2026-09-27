@@ -61,6 +61,9 @@ jobs:
           grep -q "StormSourceHealth" js/source-health.js
           grep -q "StormConfidence" js/confidence.js
           grep -q "StormNext" js/next.js
+          grep -q "StormStory" js/story.js
+          grep -q "storyPanel" index.html
+          grep -q "phasesPanel" index.html
           grep -q "bestObservation" js/nws.js
           grep -q "precipWindow" js/hourly.js
           grep -q "residualTrend" js/marine.js
