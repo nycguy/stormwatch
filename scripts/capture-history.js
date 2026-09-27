@@ -1,14 +1,6 @@
 #!/usr/bin/env node
 const fs=require("fs");
-const locations=[
- {id:"northeast-coast",name:"Northeast Coast",lat:43.50,lon:-70.44},
- {id:"mid-atlantic",name:"Mid-Atlantic Coast",lat:36.85,lon:-76.29},
- {id:"gulf",name:"Gulf Coast",lat:27.95,lon:-82.46},
- {id:"pacific-south",name:"Southern California Coast",lat:32.72,lon:-117.16},
- {id:"pacific-northwest",name:"Pacific Northwest",lat:47.61,lon:-122.33},
- {id:"hawaii",name:"Hawaii",lat:21.31,lon:-157.86},
- {id:"alaska",name:"Southcentral Alaska",lat:61.22,lon:-149.90}
-];
+const locations=JSON.parse(fs.readFileSync("data/tracked-locations.json","utf8"));
 const H={"User-Agent":"StormWatch/1.0 github.com/nycguy/stormwatch","Accept":"application/geo+json"};
 async function json(u){const r=await fetch(u,{headers:H});if(!r.ok)throw Error(r.status+" "+u);return r.json()}
 async function coastal(lat,lon){try{const stations=await json("https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json?type=waterlevels"),R=6371,rad=Math.PI/180,dist=(a,b,c,d)=>{const x=(c-a)*rad,y=(d-b)*rad,A=Math.sin(x/2)**2+Math.cos(a*rad)*Math.cos(c*rad)*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(A))},ss=(stations.stations||[]).map(v=>({...v,km:dist(lat,lon,+v.lat,+(v.lng??v.lon))})).filter(v=>v.km<=120).sort((a,b)=>a.km-b.km);if(!ss[0])return null;const id=ss[0].id,q=new URLSearchParams({date:"latest",station:id,product:"water_level",datum:"MLLW",time_zone:"gmt",units:"english",format:"json"}),w=await json("https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?"+q),v=w.data?.[0];return v?{station:String(id),name:ss[0].name,distanceKm:ss[0].km,waterLevelFt:+v.v,waterTime:v.t}:null}catch{return null}}async function one(x){try{const p=await json(`https://api.weather.gov/points/${x.lat},${x.lon}`),a=await json(`https://api.weather.gov/alerts/active?point=${x.lat},${x.lon}`),f=await json(p.properties.forecast);const coast=await coastal(x.lat,x.lon),periods=f.properties.periods||[],winds=periods.flatMap(v=>(v.windSpeed||"").match(/\d+/g)||[]).map(Number);return{...x,capturedAt:new Date().toISOString(),cwa:p.properties.cwa,alertCount:(a.features||[]).length,alerts:(a.features||[]).slice(0,8).map(v=>v.properties.event),peakWindMph:winds.length?Math.max(...winds):null,coastal:coast,periods:periods.slice(0,8).map(v=>({name:v.name,startTime:v.startTime,temperature:v.temperature,unit:v.temperatureUnit,shortForecast:v.shortForecast,windSpeed:v.windSpeed,windDirection:v.windDirection}))}}catch(e){return{...x,capturedAt:new Date().toISOString(),error:String(e.message||e)}}}
