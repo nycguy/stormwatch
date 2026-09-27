@@ -53,3 +53,8 @@ console.log("NWS valid-time accumulation tests passed");
 
 c=load("js/coastal.js",{fetch:async()=>({ok:true,json:async()=>({})})});assert.deepStrictEqual(JSON.parse(JSON.stringify(c.StormCoastal.thresholds({floodlevels:[{nws_minor:"11.1",nws_moderate:"12.2",nws_major:"13.3"}]}))),{minor:11.1,moderate:12.2,major:13.3});assert.strictEqual(c.StormCoastal.classify(10,{}),null);
 console.log("NOAA flood-level payload tests passed");
+
+c=load("js/event.js");const timingNow=Date.parse("2026-09-28T00:00:00Z"),timingProp={values:[{validTime:"2026-09-28T00:00:00Z/PT6H",value:12.7},{validTime:"2026-09-28T06:00:00Z/PT6H",value:50.8},{validTime:"2026-09-28T12:00:00Z/PT6H",value:25.4}]};let wet=c.StormEvent.wettestWindow(timingProp,18,timingNow,6,x=>x/25.4);assert.strictEqual(wet.value,2);assert(wet.start.includes("06:00:00"));
+c=load("js/coastal.js",{fetch:async()=>({ok:true,json:async()=>({})})});let co=c.StormCoastal.outlook(9.5,{minor:10,moderate:11,major:12});assert.strictEqual(co.classification,"below flood threshold");assert.strictEqual(co.minorMargin,.5);co=c.StormCoastal.outlook(10.2,{minor:10,moderate:11,major:12});assert.strictEqual(co.classification,"minor");assert(Math.abs(co.minorMargin+.2)<.001);
+c=load("js/confidence.js");assert.strictEqual(c.StormConfidence.assess({alerts:1,grid:true,hourly:true}).level,"high");assert(c.StormConfidence.provenance(["alert","grid"]).includes("Official NWS alert"));
+console.log("Hazard timing, coastal outlook, and provenance tests passed");
