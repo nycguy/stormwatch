@@ -20,3 +20,6 @@ StormWatch starts from the user's current location or a manually selected city, 
 The first production slice implements location selection, NWS point resolution, dynamic forecast/alerts, map focus, source health, and a modular adapter boundary for nationwide expansion.
 
 No changes are made to `nycguy/saco-coast-watch`.
+
+
+Deployment trigger: GitHub Pages enabled for the public repository.
