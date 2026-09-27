@@ -60,6 +60,10 @@ jobs:
           grep -q "StormSaved" js/saved.js
           grep -q "StormSourceHealth" js/source-health.js
           grep -q "StormConfidence" js/confidence.js
+          grep -q "StormNext" js/next.js
+          grep -q "bestObservation" js/nws.js
+          grep -q "precipWindow" js/hourly.js
+          grep -q "residualTrend" js/marine.js
           grep -q "wettestWindow" js/event.js
           grep -q "peakMargin" js/coastal.js
           grep -q "StormForecastChange" js/forecast-change.js
