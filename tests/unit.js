@@ -102,7 +102,7 @@ let miami=calibrationCtx.StormCalendar.score(cityWx(85,70,61,3,5,"Mostly Sunny")
 assert(miami>=65&&miami<=85,"Miami warm/humid dry day should be good, not poor or exceptional");
 assert(phoenix>=45&&phoenix<=75,"Phoenix 97F dry day should be heat-limited but usable");
 assert(seattle>=65&&seattle<=85,"Seattle 62F dry day should be reasonably pleasant");
-assert(minneapolis>=70&&minneapolis<=90,"Minneapolis 70F dry day should rank very well");
+assert(minneapolis>=75&&minneapolis<=95,"Minneapolis 70F dry day should rank very well");
 let brutal=calibrationCtx.StormCalendar.score(cityWx(-10,-12,80,30,90,"Snow"));
 assert(brutal>=2&&brutal<=7,"Extreme cold, wind and snow must remain near 5");
 assert(miami>brutal+55,"Miami dry warmth must be far above extreme winter conditions");
