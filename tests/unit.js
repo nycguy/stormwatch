@@ -94,3 +94,16 @@ c=load("js/hourly.js",{Date});let q=load("js/calendar.js",{Date,StormHourly:c.St
 
 // Precipitation ranking must account for duration and accumulation, not just peak PoP.
 c=load("js/hourly.js",{Date});q=load("js/calendar.js",{Date,StormHourly:c.StormHourly,StormEvent:{entries:()=>[]}});const wh=(h,pop,summary="Rain")=>Array.from({length:h},(_,i)=>({startTime:new Date(Date.UTC(2026,8,28,12+i)).toISOString(),endTime:new Date(Date.UTC(2026,8,28,13+i)).toISOString(),temperature:65,windSpeed:"5 mph",shortForecast:summary,probabilityOfPrecipitation:{value:pop},isDaytime:true}));let one=wh(1,80).concat(wh(7,0,"Mostly Sunny").map((x,i)=>({...x,startTime:new Date(Date.UTC(2026,8,28,13+i)).toISOString(),endTime:new Date(Date.UTC(2026,8,28,14+i)).toISOString()}))),all=wh(8,80);assert(q.StormCalendar.dayScore(one)>q.StormCalendar.dayScore(all)+15,"one-hour high PoP shower must rank well above all-day rain");let pp=q.StormCalendar.precipProfile(all);assert.strictEqual(pp.wetHours,8);assert.strictEqual(pp.longestWet,8);console.log("Precip duration ranking anchors passed");
+
+// Cross-climate calibration using representative NWS conditions retrieved 2026-09-27.
+let hc=load("js/hourly.js",{Date}),cc=load("js/comfort.js",{Date,StormHourly:hc.StormHourly}),cal=load("js/calendar.js",{Date,StormHourly:hc.StormHourly,StormComfort:cc.StormComfort,StormEvent:{entries:()=>[]}});
+const cityWx=(t,dp,rh,w,pop=0,summary="Mostly Sunny")=>({temperature:t,windSpeed:w+" mph",shortForecast:summary,probabilityOfPrecipitation:{value:pop},relativeHumidity:{value:rh},dewpoint:{value:(dp-32)*5/9},isDaytime:true});
+let miami=cal.StormCalendar.score(cityWx(85,70,61,3,5,"Mostly Sunny")),phoenix=cal.StormCalendar.score(cityWx(97,52,22,3,10,"Partly Cloudy")),seattle=cal.StormCalendar.score(cityWx(62,50,64,7,5,"Partly Sunny")),minneapolis=cal.StormCalendar.score(cityWx(70,64,68,2,5,"Partly Sunny"));
+assert(miami>=65&&miami<=85,"Miami warm/humid dry day should be good, not poor or exceptional");
+assert(phoenix>=45&&phoenix<=75,"Phoenix 97F dry day should be heat-limited but usable");
+assert(seattle>=65&&seattle<=85,"Seattle 62F dry day should be reasonably pleasant");
+assert(minneapolis>=70&&minneapolis<=90,"Minneapolis 70F dry day should rank very well");
+let brutal=cal.StormCalendar.score(cityWx(-10,-12,80,30,90,"Snow"));
+assert(brutal>=2&&brutal<=7,"Extreme cold, wind and snow must remain near 5");
+assert(miami>brutal+55,"Miami dry warmth must be far above extreme winter conditions");
+console.log("Cross-climate scientific comfort calibration passed", {miami,phoenix,seattle,minneapolis,brutal});
