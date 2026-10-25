@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T17:49:37.743Z",
+  "generatedAt": "2026-10-25T20:45:18.470Z",
   "successful": 8,
   "total": 8,
   "locations": [
@@ -8,26 +8,26 @@
       "name": "Lower Hudson Valley",
       "lat": 41.2043,
       "lon": -73.7271,
-      "capturedAt": "2026-10-25T17:49:37.491Z",
+      "capturedAt": "2026-10-25T20:45:18.388Z",
       "cwa": "OKX",
       "alertCount": 0,
       "alerts": [],
-      "peakWindMph": 8,
+      "peakWindMph": 7,
       "coastal": {
         "station": "8516945",
         "name": "Kings Point",
         "distanceKm": 43.92546647490148,
-        "waterLevelFt": 5.961,
-        "waterTime": "2026-10-25 17:42"
+        "waterLevelFt": 0.397,
+        "waterTime": "2026-10-25 20:36"
       },
       "periods": [
         {
           "name": "This Afternoon",
-          "startTime": "2026-10-25T13:00:00-04:00",
+          "startTime": "2026-10-25T16:00:00-04:00",
           "temperature": 64,
           "unit": "F",
           "shortForecast": "Sunny",
-          "windSpeed": "2 mph",
+          "windSpeed": "1 mph",
           "windDirection": "SW"
         },
         {
@@ -42,7 +42,7 @@
         {
           "name": "Monday",
           "startTime": "2026-10-26T06:00:00-04:00",
-          "temperature": 67,
+          "temperature": 68,
           "unit": "F",
           "shortForecast": "Patchy Frost then Sunny",
           "windSpeed": "5 mph",
@@ -51,7 +51,7 @@
         {
           "name": "Monday Night",
           "startTime": "2026-10-26T18:00:00-04:00",
-          "temperature": 43,
+          "temperature": 44,
           "unit": "F",
           "shortForecast": "Mostly Clear",
           "windSpeed": "6 mph",
@@ -69,7 +69,7 @@
         {
           "name": "Tuesday Night",
           "startTime": "2026-10-27T18:00:00-04:00",
-          "temperature": 34,
+          "temperature": 35,
           "unit": "F",
           "shortForecast": "Mostly Clear then Areas Of Frost",
           "windSpeed": "5 mph",
@@ -78,16 +78,16 @@
         {
           "name": "Wednesday",
           "startTime": "2026-10-28T06:00:00-04:00",
-          "temperature": 59,
+          "temperature": 60,
           "unit": "F",
-          "shortForecast": "Widespread Frost then Mostly Sunny",
+          "shortForecast": "Areas Of Frost then Sunny",
           "windSpeed": "3 mph",
           "windDirection": "E"
         },
         {
           "name": "Wednesday Night",
           "startTime": "2026-10-28T18:00:00-04:00",
-          "temperature": 40,
+          "temperature": 42,
           "unit": "F",
           "shortForecast": "Partly Cloudy",
           "windSpeed": "3 mph",
@@ -100,7 +100,7 @@
       "name": "New England Coast",
       "lat": 43.5,
       "lon": -70.44,
-      "capturedAt": "2026-10-25T17:49:37.743Z",
+      "capturedAt": "2026-10-25T20:45:18.301Z",
       "cwa": "GYX",
       "alertCount": 0,
       "alerts": [],
@@ -109,13 +109,13 @@
         "station": "8418150",
         "name": "Portland",
         "distanceKm": 23.616415105574436,
-        "waterLevelFt": 5.691,
-        "waterTime": "2026-10-25 17:42"
+        "waterLevelFt": -0.29,
+        "waterTime": "2026-10-25 20:36"
       },
       "periods": [
         {
           "name": "This Afternoon",
-          "startTime": "2026-10-25T13:00:00-04:00",
+          "startTime": "2026-10-25T16:00:00-04:00",
           "temperature": 60,
           "unit": "F",
           "shortForecast": "Sunny",
@@ -125,7 +125,7 @@
         {
           "name": "Tonight",
           "startTime": "2026-10-25T18:00:00-04:00",
-          "temperature": 34,
+          "temperature": 36,
           "unit": "F",
           "shortForecast": "Mostly Clear",
           "windSpeed": "0 to 5 mph",
@@ -134,43 +134,43 @@
         {
           "name": "Monday",
           "startTime": "2026-10-26T06:00:00-04:00",
-          "temperature": 66,
+          "temperature": 68,
           "unit": "F",
           "shortForecast": "Sunny",
-          "windSpeed": "0 to 5 mph",
-          "windDirection": "W"
+          "windSpeed": "0 mph",
+          "windDirection": ""
         },
         {
           "name": "Monday Night",
           "startTime": "2026-10-26T18:00:00-04:00",
-          "temperature": 35,
+          "temperature": 36,
           "unit": "F",
           "shortForecast": "Partly Cloudy",
-          "windSpeed": "5 mph",
+          "windSpeed": "0 to 5 mph",
           "windDirection": "NW"
         },
         {
           "name": "Tuesday",
           "startTime": "2026-10-27T06:00:00-04:00",
-          "temperature": 52,
+          "temperature": 53,
           "unit": "F",
           "shortForecast": "Sunny",
-          "windSpeed": "0 to 10 mph",
+          "windSpeed": "0 to 5 mph",
           "windDirection": "N"
         },
         {
           "name": "Tuesday Night",
           "startTime": "2026-10-27T18:00:00-04:00",
-          "temperature": 26,
+          "temperature": 27,
           "unit": "F",
-          "shortForecast": "Mostly Clear",
+          "shortForecast": "Clear",
           "windSpeed": "0 to 5 mph",
           "windDirection": "N"
         },
         {
           "name": "Wednesday",
           "startTime": "2026-10-28T06:00:00-04:00",
-          "temperature": 51,
+          "temperature": 53,
           "unit": "F",
           "shortForecast": "Sunny",
           "windSpeed": "0 to 5 mph",
@@ -179,7 +179,7 @@
         {
           "name": "Wednesday Night",
           "startTime": "2026-10-28T18:00:00-04:00",
-          "temperature": 34,
+          "temperature": 36,
           "unit": "F",
           "shortForecast": "Mostly Clear",
           "windSpeed": "5 mph",
@@ -192,7 +192,7 @@
       "name": "Mid-Atlantic Coast",
       "lat": 36.85,
       "lon": -76.29,
-      "capturedAt": "2026-10-25T17:49:37.542Z",
+      "capturedAt": "2026-10-25T20:45:18.302Z",
       "cwa": "AKQ",
       "alertCount": 0,
       "alerts": [],
@@ -201,17 +201,17 @@
         "station": "8639348",
         "name": "Money Point",
         "distanceKm": 8.054022282773122,
-        "waterLevelFt": 2.083,
-        "waterTime": "2026-10-25 17:42"
+        "waterLevelFt": 1.49,
+        "waterTime": "2026-10-25 20:36"
       },
       "periods": [
         {
           "name": "This Afternoon",
-          "startTime": "2026-10-25T13:00:00-04:00",
+          "startTime": "2026-10-25T16:00:00-04:00",
           "temperature": 66,
           "unit": "F",
           "shortForecast": "Sunny",
-          "windSpeed": "12 mph",
+          "windSpeed": "10 mph",
           "windDirection": "NE"
         },
         {
@@ -284,7 +284,7 @@
       "name": "Gulf Coast",
       "lat": 27.95,
       "lon": -82.46,
-      "capturedAt": "2026-10-25T17:49:37.490Z",
+      "capturedAt": "2026-10-25T20:45:18.383Z",
       "cwa": "TBW",
       "alertCount": 0,
       "alerts": [],
@@ -293,13 +293,13 @@
         "station": "8726674",
         "name": "East Bay",
         "distanceKm": 4.829681420780664,
-        "waterLevelFt": 2.313,
-        "waterTime": "2026-10-25 17:42"
+        "waterLevelFt": 2.224,
+        "waterTime": "2026-10-25 20:36"
       },
       "periods": [
         {
           "name": "This Afternoon",
-          "startTime": "2026-10-25T13:00:00-04:00",
+          "startTime": "2026-10-25T16:00:00-04:00",
           "temperature": 85,
           "unit": "F",
           "shortForecast": "Isolated Rain Showers",
@@ -321,16 +321,16 @@
           "temperature": 84,
           "unit": "F",
           "shortForecast": "Sunny",
-          "windSpeed": "12 to 18 mph",
+          "windSpeed": "12 to 16 mph",
           "windDirection": "NNE"
         },
         {
           "name": "Monday Night",
           "startTime": "2026-10-26T18:00:00-04:00",
-          "temperature": 68,
+          "temperature": 67,
           "unit": "F",
           "shortForecast": "Partly Cloudy",
-          "windSpeed": "9 to 17 mph",
+          "windSpeed": "8 to 16 mph",
           "windDirection": "NNE"
         },
         {
@@ -339,16 +339,16 @@
           "temperature": 84,
           "unit": "F",
           "shortForecast": "Sunny",
-          "windSpeed": "10 to 18 mph",
+          "windSpeed": "9 to 16 mph",
           "windDirection": "NE"
         },
         {
           "name": "Tuesday Night",
           "startTime": "2026-10-27T18:00:00-04:00",
-          "temperature": 69,
+          "temperature": 68,
           "unit": "F",
           "shortForecast": "Mostly Clear",
-          "windSpeed": "10 to 17 mph",
+          "windSpeed": "9 to 16 mph",
           "windDirection": "NE"
         },
         {
@@ -357,7 +357,7 @@
           "temperature": 84,
           "unit": "F",
           "shortForecast": "Sunny",
-          "windSpeed": "12 to 17 mph",
+          "windSpeed": "10 to 17 mph",
           "windDirection": "NE"
         },
         {
@@ -366,7 +366,7 @@
           "temperature": 70,
           "unit": "F",
           "shortForecast": "Partly Cloudy",
-          "windSpeed": "8 to 16 mph",
+          "windSpeed": "9 to 17 mph",
           "windDirection": "NE"
         }
       ]
@@ -376,28 +376,28 @@
       "name": "Southern California",
       "lat": 32.72,
       "lon": -117.16,
-      "capturedAt": "2026-10-25T17:49:37.592Z",
+      "capturedAt": "2026-10-25T20:45:18.367Z",
       "cwa": "SGX",
       "alertCount": 1,
       "alerts": [
         "Coastal Flood Warning"
       ],
-      "peakWindMph": 10,
+      "peakWindMph": 15,
       "coastal": {
         "station": "9410170",
         "name": "San Diego",
         "distanceKm": 1.6359120358464907,
-        "waterLevelFt": 6.649,
-        "waterTime": "2026-10-25 17:42"
+        "waterLevelFt": 2.315,
+        "waterTime": "2026-10-25 20:36"
       },
       "periods": [
         {
-          "name": "Today",
-          "startTime": "2026-10-25T10:00:00-07:00",
+          "name": "This Afternoon",
+          "startTime": "2026-10-25T13:00:00-07:00",
           "temperature": 79,
           "unit": "F",
-          "shortForecast": "Mostly Sunny",
-          "windSpeed": "0 to 10 mph",
+          "shortForecast": "Sunny",
+          "windSpeed": "10 mph",
           "windDirection": "NW"
         },
         {
@@ -405,8 +405,8 @@
           "startTime": "2026-10-25T18:00:00-07:00",
           "temperature": 62,
           "unit": "F",
-          "shortForecast": "Partly Cloudy",
-          "windSpeed": "0 to 10 mph",
+          "shortForecast": "Mostly Clear",
+          "windSpeed": "5 mph",
           "windDirection": "N"
         },
         {
@@ -415,7 +415,7 @@
           "temperature": 79,
           "unit": "F",
           "shortForecast": "Sunny",
-          "windSpeed": "0 to 10 mph",
+          "windSpeed": "5 to 15 mph",
           "windDirection": "N"
         },
         {
@@ -424,13 +424,13 @@
           "temperature": 60,
           "unit": "F",
           "shortForecast": "Partly Cloudy",
-          "windSpeed": "0 to 10 mph",
-          "windDirection": "NE"
+          "windSpeed": "5 to 10 mph",
+          "windDirection": "N"
         },
         {
           "name": "Tuesday",
           "startTime": "2026-10-27T06:00:00-07:00",
-          "temperature": 76,
+          "temperature": 75,
           "unit": "F",
           "shortForecast": "Mostly Sunny",
           "windSpeed": "0 to 10 mph",
@@ -439,29 +439,29 @@
         {
           "name": "Tuesday Night",
           "startTime": "2026-10-27T18:00:00-07:00",
-          "temperature": 60,
+          "temperature": 61,
           "unit": "F",
-          "shortForecast": "Patchy Fog",
+          "shortForecast": "Mostly Cloudy",
           "windSpeed": "0 to 5 mph",
-          "windDirection": "NW"
+          "windDirection": "N"
         },
         {
           "name": "Wednesday",
           "startTime": "2026-10-28T06:00:00-07:00",
-          "temperature": 74,
+          "temperature": 73,
           "unit": "F",
-          "shortForecast": "Patchy Fog then Partly Sunny",
-          "windSpeed": "0 to 5 mph",
+          "shortForecast": "Partly Sunny",
+          "windSpeed": "0 to 10 mph",
           "windDirection": "SW"
         },
         {
           "name": "Wednesday Night",
           "startTime": "2026-10-28T18:00:00-07:00",
-          "temperature": 62,
+          "temperature": 61,
           "unit": "F",
           "shortForecast": "Mostly Cloudy",
           "windSpeed": "0 to 5 mph",
-          "windDirection": "SW"
+          "windDirection": "NE"
         }
       ]
     },
@@ -470,32 +470,32 @@
       "name": "Pacific Northwest",
       "lat": 47.61,
       "lon": -122.33,
-      "capturedAt": "2026-10-25T17:49:37.271Z",
+      "capturedAt": "2026-10-25T20:45:18.470Z",
       "cwa": "SEW",
       "alertCount": 0,
       "alerts": [],
-      "peakWindMph": 12,
+      "peakWindMph": 14,
       "coastal": {
         "station": "9447130",
         "name": "Seattle",
         "distanceKm": 1.0751215034633517,
-        "waterLevelFt": 5.274,
-        "waterTime": "2026-10-25 17:42"
+        "waterLevelFt": 8.66,
+        "waterTime": "2026-10-25 20:36"
       },
       "periods": [
         {
-          "name": "Today",
-          "startTime": "2026-10-25T06:00:00-07:00",
+          "name": "This Afternoon",
+          "startTime": "2026-10-25T13:00:00-07:00",
           "temperature": 55,
           "unit": "F",
-          "shortForecast": "Light Rain",
-          "windSpeed": "3 mph",
+          "shortForecast": "Chance Rain",
+          "windSpeed": "5 mph",
           "windDirection": "SE"
         },
         {
           "name": "Tonight",
           "startTime": "2026-10-25T18:00:00-07:00",
-          "temperature": 46,
+          "temperature": 47,
           "unit": "F",
           "shortForecast": "Chance Light Rain",
           "windSpeed": "2 mph",
@@ -504,11 +504,11 @@
         {
           "name": "Monday",
           "startTime": "2026-10-26T06:00:00-07:00",
-          "temperature": 56,
+          "temperature": 55,
           "unit": "F",
           "shortForecast": "Chance Light Rain",
           "windSpeed": "2 mph",
-          "windDirection": "NNE"
+          "windDirection": "NE"
         },
         {
           "name": "Monday Night",
@@ -516,43 +516,43 @@
           "temperature": 47,
           "unit": "F",
           "shortForecast": "Chance Light Rain",
-          "windSpeed": "0 to 5 mph",
-          "windDirection": "S"
+          "windSpeed": "1 to 5 mph",
+          "windDirection": "SSE"
         },
         {
           "name": "Tuesday",
           "startTime": "2026-10-27T06:00:00-07:00",
           "temperature": 56,
           "unit": "F",
-          "shortForecast": "Chance Light Rain",
-          "windSpeed": "5 to 8 mph",
+          "shortForecast": "Light Rain Likely",
+          "windSpeed": "5 to 10 mph",
           "windDirection": "SSW"
         },
         {
           "name": "Tuesday Night",
           "startTime": "2026-10-27T18:00:00-07:00",
-          "temperature": 45,
+          "temperature": 46,
           "unit": "F",
           "shortForecast": "Light Rain",
-          "windSpeed": "7 to 12 mph",
-          "windDirection": "S"
+          "windSpeed": "10 to 14 mph",
+          "windDirection": "SSW"
         },
         {
           "name": "Wednesday",
           "startTime": "2026-10-28T06:00:00-07:00",
-          "temperature": 54,
+          "temperature": 53,
           "unit": "F",
           "shortForecast": "Showers And Thunderstorms",
-          "windSpeed": "7 to 10 mph",
-          "windDirection": "S"
+          "windSpeed": "10 mph",
+          "windDirection": "SSW"
         },
         {
           "name": "Wednesday Night",
           "startTime": "2026-10-28T18:00:00-07:00",
-          "temperature": 43,
+          "temperature": 44,
           "unit": "F",
           "shortForecast": "Light Rain",
-          "windSpeed": "3 to 7 mph",
+          "windSpeed": "5 to 8 mph",
           "windDirection": "SSE"
         }
       ]
@@ -562,7 +562,7 @@
       "name": "Hawaii",
       "lat": 21.31,
       "lon": -157.86,
-      "capturedAt": "2026-10-25T17:49:37.408Z",
+      "capturedAt": "2026-10-25T20:45:18.381Z",
       "cwa": "HFO",
       "alertCount": 2,
       "alerts": [
@@ -574,13 +574,13 @@
         "station": "1612340",
         "name": "Honolulu",
         "distanceKm": 0.8773865261256805,
-        "waterLevelFt": 1.132,
-        "waterTime": "2026-10-25 17:36"
+        "waterLevelFt": 0.581,
+        "waterTime": "2026-10-25 20:30"
       },
       "periods": [
         {
           "name": "Today",
-          "startTime": "2026-10-25T07:00:00-10:00",
+          "startTime": "2026-10-25T10:00:00-10:00",
           "temperature": 85,
           "unit": "F",
           "shortForecast": "Mostly Sunny then Isolated Rain Showers",
@@ -657,7 +657,7 @@
       "name": "Southcentral Alaska",
       "lat": 61.22,
       "lon": -149.9,
-      "capturedAt": "2026-10-25T17:49:37.290Z",
+      "capturedAt": "2026-10-25T20:45:18.387Z",
       "cwa": "AFC",
       "alertCount": 0,
       "alerts": [],
@@ -665,13 +665,13 @@
       "coastal": null,
       "periods": [
         {
-          "name": "Today",
-          "startTime": "2026-10-25T09:00:00-08:00",
+          "name": "This Afternoon",
+          "startTime": "2026-10-25T12:00:00-08:00",
           "temperature": 42,
           "unit": "F",
           "shortForecast": "Light Rain",
           "windSpeed": "5 to 10 mph",
-          "windDirection": "SE"
+          "windDirection": "S"
         },
         {
           "name": "Tonight",
